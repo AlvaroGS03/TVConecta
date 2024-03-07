@@ -3258,6 +3258,9 @@ button.bg-dark:focus {
 .text-center {
   text-align: center !important; }
 
+.margenderecho{
+  margin-right: 50px;}
+
 @media (min-width: 576px) {
   .text-sm-left {
     text-align: left !important; }
