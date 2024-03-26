@@ -8,12 +8,11 @@
     <meta name="Descripción" content="Demostración de TVConecta" />
     <link rel="icon" href="img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/demo.css">
-
 </head>
 
 <body>
     <div class="power-switch">
-        <input type="checkbox" />
+        <input type="checkbox" onchange="playSound(this)" />
         <div class="button">
             <svg class="power-off">
                 <use xlink:href="#line" class="line" />
@@ -26,6 +25,10 @@
         </div>
     </div>
 
+    <audio id="startup">
+        <source src="sounds/startup.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- SVG -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
@@ -35,9 +38,36 @@
             <circle cx="75" cy="80" r="35" />
         </symbol>
     </svg>
-    
-    <button class="modo-sencillo" style="position: absolute; left: 20px; top: 20px; width: 46vw; height: 95vh; font-size: 35px;">Modo Sencillo</button>
-    <button class="modo-complejo" style="position: absolute; right: 20px; top: 20px; width: 46vw; height: 95vh; font-size: 35px;">Modo Complejo</button>
+
+    <button class="modo-complejo"
+        style="position: absolute; right: 20px; top: 20px; width: 46vw; height: 95vh; font-size: 35px;">Modo
+        Complejo</button>
+    <button id="modo-sencillo" class="modo-sencillo"
+        style="position: absolute; left: 20px; top: 20px; width: 46vw; height: 95vh; font-size: 35px;">Modo
+        Sencillo</button>
+
+    <div id="tv-remote">
+        <button class="power" onclick="playSoundAndRedirect()"><img src="img/power.svg"/></button>
+        <div class="channel-list">
+            <button class="channel" onclick="window.open('https://www.rtve.es/play/videos/directo/la-1/', '_blank')">
+                <img src="img/Logo_TVE-1.png" alt="Logo de TVE-1">
+            </button>
+
+            <button class="channel"><img src="img/Logo_TVE-2.png" /></button>
+            <button class="channel"><img src="img/Logo_ANTENA3.png" /></button>
+            <button class="channel"><img src="img/Logo_CUATRO.png" /></button>
+            <button class="channel"><img src="img/Logo_TELECINCO.png" /></button>
+            <button class="channel"><img src="img/Logo_SEXTA.png" /></button>
+            <!-- Agrega más botones de canal según sea necesario -->
+        </div>
+        <div class="controls">
+            <button class="volume-down"><img src="img/volume-1.svg" /></button>
+            <button class="volume-up"><img src="img/volume-2.svg" /></button>
+            <button class="channel-down"><img src="img/channel-.svg"/></button>
+            <button class="channel-up"><img src="img/channel+.svg" /></button>
+            <button class="mute"><img src="img/volume-x.svg" /></button>
+        </div>
+    </div>
 
     <script src="js/demo.js"></script>
 </body>

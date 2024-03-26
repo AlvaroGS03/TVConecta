@@ -230,3 +230,84 @@ button {
     display: none;
 }
 
+
+#tv-remote {
+    width: 300px;
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #a5a3a3;
+    padding: 20px;
+    border: 10px solid #0e9271;
+    border-radius: 10px;
+}
+
+.power {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-color: red;
+}
+
+.channel-list {
+    display: flex;
+    flex-direction: column;
+    /* Para que los botones se apilen verticalmente */
+    justify-content: center;
+    /* Para centrar los elementos horizontalmente */
+    align-items: center;
+    /* Para centrar los elementos verticalmente */
+}
+
+.channel {
+    margin: 5px;
+    /* Espacio entre cada botón de canal */
+    padding: 1px;
+    /* Espacio interior de cada botón de canal */
+    background-color: #6b6b6b;
+    /* Color de fondo */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+}
+
+
+img {
+    width: 60px;
+    height: 60px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan en filas adicionales */
+    justify-content: center;
+    /* Para centrar los elementos horizontalmente */
+    align-items: center;
+    /* Para centrar los elementos verticalmente */
+}
+
+/* Estilo común para los botones de control */
+.controls button {
+    margin: 5px;
+    /* Espacio entre cada botón de control */
+    padding: 20px;
+    /* Espacio interior de cada botón de control */
+    background-color: #424242;
+    /* Color de fondo */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    cursor: pointer;
+}
+
+.channel-down, .channel-up {
+    background-color: #0e9271 !important;
+}
