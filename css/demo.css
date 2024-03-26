@@ -212,40 +212,21 @@ body {
     align-items: center;
     overflow-y: hidden;
 }
-.tarjeta-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 96vh;
-    box-sizing: border-box;
-    padding: 0 20px; /* Espacio alrededor de las tarjetas */
-    overflow-y: hidden;
-}
 
-.tarjeta {
+/* Estilos para los botones */
+button {
     background-color: black;
     color: white;
-    width: calc(50% - 40px); /* Ancho del 50% menos el margen */
-    height: 96vh; /* Alto de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    box-sizing: border-box; /* Incluir el tamaño del margen en el cálculo del ancho */
-    position: absolute; /* Posición absoluta para que se superponga */
-    top: 0; /* Desde la parte superior */
-    overflow-y: hidden;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.izquierda {
-    left: 0; /* Se alinea a la izquierda */
-    font-size: 2.5em;
-}
-
-.derecha {
-    right: 0; /* Se alinea a la derecha */
-    font-size: 2.5em;
+/* Estilos para los botones cuando están ocultos */
+.modo-sencillo,
+.modo-complejo {
+    display: none;
 }
 
