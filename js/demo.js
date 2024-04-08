@@ -36,12 +36,12 @@ function playSound(checkbox) {
 }
 function playSoundAndRedirect() {
     var audio = new Audio('sounds/shutdown.mp3');
-    
+
     // Reproducir el sonido
     audio.play();
-    
+
     // Redirigir después de que termine de reproducirse el sonido
-    audio.addEventListener('ended', function() {
+    audio.addEventListener('ended', function () {
         window.open('demo.html', '_self');
     });
 }

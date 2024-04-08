@@ -230,7 +230,6 @@ button {
     display: none;
 }
 
-
 #tv-remote {
     width: 300px;
     margin: 0 auto;
@@ -243,7 +242,10 @@ button {
     padding: 20px;
     border: 10px solid #0e9271;
     border-radius: 10px;
+    max-height: calc(100vh - 40px); /* Resta el espacio de margen superior e inferior */
+    overflow: auto; /* Agrega una barra de desplazamiento si el contenido sobrepasa la altura máxima */
 }
+
 
 .power {
     display: flex;
@@ -251,30 +253,27 @@ button {
     align-items: center;
     margin: 0 auto;
     background-color: red;
+    margin-bottom: 10px;
 }
 
 .channel-list {
     display: flex;
-    flex-direction: column;
-    /* Para que los botones se apilen verticalmente */
-    justify-content: center;
-    /* Para centrar los elementos horizontalmente */
-    align-items: center;
-    /* Para centrar los elementos verticalmente */
+    flex-direction: row; /* Cambiar la dirección de flexión a fila */
+    justify-content: center; /* Para centrar los elementos horizontalmente */
+    align-items: center; /* Para centrar los elementos verticalmente */
+    overflow-y: auto;
+    max-height: 200px;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en nuevas filas */
 }
 
 .channel {
     margin: 5px;
-    /* Espacio entre cada botón de canal */
-    padding: 1px;
-    /* Espacio interior de cada botón de canal */
+    padding: 10px;
     background-color: #6b6b6b;
-    /* Color de fondo */
     border: none;
-    /* Sin borde */
     border-radius: 5px;
-    /* Bordes redondeados */
     cursor: pointer;
+    width: 100px; /* Anchura de cada botón de canal */
 }
 
 
