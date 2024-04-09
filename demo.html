@@ -8,6 +8,7 @@
     <meta name="Descripción" content="Demostración de TVConecta" />
     <link rel="icon" href="img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="css/demo.css">
+    <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
 </head>
 
 <body>
@@ -50,8 +51,9 @@
         <div id="symbol">
             <div id="tv-screen">
                 <div id="tv-content">
-                    <iframe id="tv-iframe" src="https://www.rtve.es/play/videos/directo/la-1/" frameborder="0"
-                        allowfullscreen></iframe>
+                    <video id='hls-example'  class="video-js vjs-default-skin" width="400" height="300" controls>
+                        <source type="application/x-mpegURL" src="video/la1_main_dvr.m3u8">
+                        </video>
                 </div>
             </div>
         </div>
@@ -81,6 +83,14 @@
 
 
     <script src="js/demo.js"></script>
+    <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    
+    <script>
+    var player = videojs('hls-example');
+    player.play();
+    </script>
 
 </body>
 
