@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -46,31 +46,42 @@
         style="position: absolute; left: 20px; top: 20px; width: 46vw; height: 95vh; font-size: 35px;">Modo
         Sencillo</button>
 
-    <div id="tv-remote">
-        <button class="power" onclick="playSoundAndRedirect()"><img src="img/power.svg"/></button>
-        <div class="channel-list">
-            <button class="channel" onclick="window.open('https://www.rtve.es/play/videos/directo/la-1/', '_blank')">
-                <img src="img/Logo_TVE-1.png" alt="Logo de TVE-1">
-            </button>
-
-            <button class="channel"><img src="img/Logo_TVE-2.png" /></button>
-            <button class="channel"><img src="img/Logo_ANTENA3.png" /></button>
-            <button class="channel"><img src="img/Logo_CUATRO.png" /></button>
-            <button class="channel"><img src="img/Logo_TELECINCO.png" /></button>
-            <button class="channel"><img src="img/Logo_SEXTA.png" /></button>
-            <!-- Agrega más botones de canal según sea necesario -->
+    <div id="tv-wrapper">
+        <div id="symbol">
+            <div id="tv-screen">
+                <div id="tv-content">
+                    <iframe id="tv-iframe" src="https://www.rtve.es/play/videos/directo/la-1/" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
-        <div class="controls">
-            <button class="volume-down"><img src="img/volume-1.svg" /></button>
-            <button class="volume-up"><img src="img/volume-2.svg" /></button>
-            <button class="channel-down"><img src="img/channel-.svg"/></button>
-            <button class="channel-up"><img src="img/channel+.svg" /></button>
-            <button class="mute"><img src="img/volume-x.svg" /></button>
+        <div id="tv-remote">
+            <button class="power" onclick="playSoundAndRedirect()"><img src="img/power.svg" /></button>
+            <div class="channel-list">
+                <button class="channel" onclick="openTV()">
+                    <img src="img/Logo_TVE-1.png" alt="Logo de TVE-1">
+                </button>
+
+                <!-- Otros botones de canales  -->
+                <button class="channel"><img src="img/Logo_TVE-2.png" /></button>
+                <button class="channel"><img src="img/Logo_ANTENA3.png" /></button>
+                <button class="channel"><img src="img/Logo_CUATRO.png" /></button>
+                <button class="channel"><img src="img/Logo_TELECINCO.png" /></button>
+                <button class="channel"><img src="img/Logo_SEXTA.png" /></button>
+            </div>
+            <div class="controls">
+                <button class="volume-down"><img src="img/volume-1.svg" /></button>
+                <button class="volume-up"><img src="img/volume-2.svg" /></button>
+                <button class="channel-down"><img src="img/channel-.svg" /></button>
+                <button class="channel-up"><img src="img/channel+.svg" /></button>
+                <button class="mute"><img src="img/volume-x.svg" /></button>
+            </div>
         </div>
     </div>
 
-    
+
     <script src="js/demo.js"></script>
+
 </body>
 
 </html>

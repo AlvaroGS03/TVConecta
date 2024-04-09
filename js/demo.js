@@ -44,3 +44,14 @@ function playSoundAndRedirect() {
         window.open('demo.html', '_self');
     });
 }
+
+function openTV() {
+
+    var symbol = document.getElementById("tv-iframe");
+    symbol.style.display = "block"; // Cambia la visibilidad a "block" (visible)
+
+
+    document.getElementById("tv-remote").style.right = "20px"; // Elimina la propiedad right
+    document.getElementById("tv-remote").style.left = ""; // Establece la propiedad left
+
+}

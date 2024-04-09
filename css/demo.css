@@ -242,8 +242,10 @@ button {
     padding: 20px;
     border: 10px solid #0e9271;
     border-radius: 10px;
-    max-height: calc(100vh - 40px); /* Resta el espacio de margen superior e inferior */
-    overflow: auto; /* Agrega una barra de desplazamiento si el contenido sobrepasa la altura máxima */
+    max-height: calc(100vh - 40px);
+    /* Resta el espacio de margen superior e inferior */
+    overflow: auto;
+    /* Agrega una barra de desplazamiento si el contenido sobrepasa la altura máxima */
 }
 
 .power {
@@ -257,12 +259,16 @@ button {
 
 .channel-list {
     display: flex;
-    flex-direction: row; /* Cambiar la dirección de flexión a fila */
-    justify-content: center; /* Para centrar los elementos horizontalmente */
-    align-items: center; /* Para centrar los elementos verticalmente */
+    flex-direction: row;
+    /* Cambiar la dirección de flexión a fila */
+    justify-content: center;
+    /* Para centrar los elementos horizontalmente */
+    align-items: center;
+    /* Para centrar los elementos verticalmente */
     overflow-y: auto;
     max-height: 200px;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en nuevas filas */
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan en nuevas filas */
 }
 
 .channel {
@@ -272,7 +278,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100px; /* Anchura de cada botón de canal */
+    width: 100px;
+    /* Anchura de cada botón de canal */
 }
 
 
@@ -306,6 +313,24 @@ img {
     cursor: pointer;
 }
 
-.channel-down, .channel-up {
+.channel-down,
+.channel-up {
     background-color: #0e9271 !important;
+}
+
+
+
+
+#tv-iframe {
+    position: fixed;
+    /* Cambiado a fixed para que mantenga su posición al hacer scroll */
+    left: 75px;
+    /* Margen izquierdo deseado */
+    top: 50%;
+    /* Centrado verticalmente */
+    transform: translateY(-50%);
+    /* Centra verticalmente */
+    width: 700px;
+    height: 450px;
+    display: none;
 }
