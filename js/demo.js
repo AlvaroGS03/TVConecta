@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('tv-remote').style.display = 'block';
     });
 });
-
 function playSound(checkbox) {
     if (checkbox.checked) {
         var audio = document.getElementById("startup");

@@ -246,7 +246,6 @@ button {
     overflow: auto; /* Agrega una barra de desplazamiento si el contenido sobrepasa la altura máxima */
 }
 
-
 .power {
     display: flex;
     justify-content: center;
