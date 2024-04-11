@@ -103,7 +103,7 @@ function mostrarImagen(tipo) {
         imagen.src = 'img/volume-2.svg';
     } else if (tipo === 'bajar') {
         if (player.volume() == 0) {
-            imagen.src = 'img/volume-X.svg';
+            imagen.src = 'img/volume-x.svg';
         }
         else {
             imagen.src = 'img/volume-1.svg';
@@ -111,7 +111,7 @@ function mostrarImagen(tipo) {
         }
     } else if (tipo === 'mute') {
         if (player.volume() > 0) {
-            imagen.src = 'img/volume-X.svg';
+            imagen.src = 'img/volume-x.svg';
             //mute el reproductor de video
             player.volume(0);
         } else if (player.volume() == 0) {
