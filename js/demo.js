@@ -47,11 +47,63 @@ function playSoundAndRedirect() {
 
 function openTV() {
 
-    var symbol = document.getElementById("tv-iframe");
+    var player = videojs('hls-example');
+    player.play();
+
+    var symbol = document.getElementById("tv-screen");
     symbol.style.display = "block"; // Cambia la visibilidad a "block" (visible)
 
 
-    document.getElementById("tv-remote").style.right = "20px"; // Elimina la propiedad right
-    document.getElementById("tv-remote").style.left = ""; // Establece la propiedad left
+    document.getElementById("tv-remote").style.right = "0px";
+    document.getElementById("tv-remote").style.left = "";
 
 }
+
+
+function mostrarImagen(tipo) {
+    // Obtener el contenedor de la imagen y la imagen misma
+    var contenedor = document.getElementById('imagen-container');
+    var imagen = document.getElementById('imagen');
+    var player = videojs('hls-example');
+
+    // Cambiar la imagen según el tipo
+    if (tipo === 'subir') {
+        if (player.volume() == 1) {
+            player.volume(player.volume() + 0.2);
+        }
+        imagen.src = 'img/volume-2.svg';
+    } else if (tipo === 'bajar') {
+        if (player.volume() == 0) {
+            imagen.src = 'img/volume-X.svg';
+        }
+        else {
+            imagen.src = 'img/volume-1.svg';
+            player.volume(player.volume() - 0.2);
+        }
+    } else if (tipo === 'mute') {
+        if (player.volume() > 0) {
+            imagen.src = 'img/volume-X.svg';
+            //mute el reproductor de video
+            player.volume(0);
+        } else if (player.volume() == 0) {
+            imagen.src = 'img/volume-2.svg';
+            //desmute el reproductor de video
+            player.volume(0.5);
+        }
+    }
+
+
+    // Mostrar el contenedor de la imagen
+    contenedor.style.display = 'block';
+
+    // Reiniciar la animación
+    imagen.style.animation = 'none';
+    imagen.offsetHeight; /* Trigger reflow */
+    imagen.style.animation = null;
+
+    // Ocultar el contenedor después de medio segundo de finalizar la animación
+    setTimeout(function () {
+        contenedor.style.display = 'none';
+    }, 500); // 500 milisegundos = 0.5 segundos
+}
+

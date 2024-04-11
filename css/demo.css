@@ -232,9 +232,9 @@ button {
 
 #tv-remote {
     width: 300px;
-    margin: 0 auto;
+    margin: auto;
     display: none;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -242,11 +242,10 @@ button {
     padding: 20px;
     border: 10px solid #0e9271;
     border-radius: 10px;
-    max-height: calc(100vh - 40px);
-    /* Resta el espacio de margen superior e inferior */
+    max-height: 100%;
     overflow: auto;
-    /* Agrega una barra de desplazamiento si el contenido sobrepasa la altura máxima */
 }
+
 
 .power {
     display: flex;
@@ -319,18 +318,69 @@ img {
 }
 
 
-
-
-#tv-iframe {
+#tv-screen {
     position: fixed;
-    /* Cambiado a fixed para que mantenga su posición al hacer scroll */
-    left: 75px;
-    /* Margen izquierdo deseado */
+    left: 100px;
     top: 50%;
-    /* Centrado verticalmente */
     transform: translateY(-50%);
-    /* Centra verticalmente */
-    width: 700px;
-    height: 450px;
     display: none;
+}
+
+#tv-frame {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+
+}
+
+#tv-frame img {
+    width: 455px;
+    height: 410px;
+    position: fixed;
+    transform: translate(-50%, -46%);
+}
+
+#imagen-container {
+    display: none;
+    /* Para que inicialmente esté oculto */
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Cambiar el último valor para ajustar la opacidad */
+    z-index: -1;
+}
+
+/* Estilo para la imagen */
+#imagen {
+    max-width: 100%;
+    max-height: 100%;
+    animation: zoom 0.5s ease-in-out;
+}
+
+/* Animación para aumentar o disminuir el tamaño */
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

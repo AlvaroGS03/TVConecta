@@ -48,13 +48,19 @@
         Sencillo</button>
 
     <div id="tv-wrapper">
-        <div id="symbol">
-            <div id="tv-screen">
-                <div id="tv-content">
-                    <video id='hls-example'  class="video-js vjs-default-skin" width="400" height="300" controls>
-                        <source type="application/x-mpegURL" src="video/la1_main_dvr.m3u8">
-                        </video>
-                </div>
+        <div id="tv-screen">
+            <div id="tv-frame">
+                <img src="img/Logo_Marco_TV.png" />
+            </div>
+            <div id="tv-content">
+                <video id='hls-example' class="video-js vjs-default-skin" controls width="426" height="240">
+                    <source type="application/x-mpegURL" src="video/la1_main_dvr.m3u8">
+                </video>
+
+            </div>
+            <div id="imagen-container">
+                <div id="overlay"></div>
+                <img id="imagen" src="" alt="Imagen de Volumen">
             </div>
         </div>
         <div id="tv-remote">
@@ -72,11 +78,11 @@
                 <button class="channel"><img src="img/Logo_SEXTA.png" /></button>
             </div>
             <div class="controls">
-                <button class="volume-down"><img src="img/volume-1.svg" /></button>
-                <button class="volume-up"><img src="img/volume-2.svg" /></button>
+                <button class="volume-down" onclick="mostrarImagen('bajar')"><img src="img/volume-1.svg" /></button>
+                <button class="volume-up" onclick="mostrarImagen('subir')"><img src="img/volume-2.svg" /></button>
                 <button class="channel-down"><img src="img/channel-.svg" /></button>
                 <button class="channel-up"><img src="img/channel+.svg" /></button>
-                <button class="mute"><img src="img/volume-x.svg" /></button>
+                <button class="mute" onclick="mostrarImagen('mute')"><img src="img/volume-x.svg" /></button>
             </div>
         </div>
     </div>
@@ -86,11 +92,6 @@
     <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
     <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
-    
-    <script>
-    var player = videojs('hls-example');
-    player.play();
-    </script>
 
 </body>
 
