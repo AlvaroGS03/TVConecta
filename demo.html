@@ -54,9 +54,8 @@
             </div>
             <div id="tv-content">
                 <video id='hls-example' class="video-js vjs-default-skin" controls width="426" height="240">
-                    <source type="application/x-mpegURL" src="video/la1_main_dvr.m3u8">
+                    <source type="application/x-mpegURL">
                 </video>
-
             </div>
             <div id="imagen-container">
                 <div id="overlay"></div>
@@ -66,12 +65,11 @@
         <div id="tv-remote">
             <button class="power" onclick="playSoundAndRedirect()"><img src="img/power.svg" /></button>
             <div class="channel-list">
-                <button class="channel" onclick="openTV()">
+                <button class="channel" onclick="openTV(1)">
                     <img src="img/Logo_TVE-1.png" alt="Logo de TVE-1">
                 </button>
 
-                <!-- Otros botones de canales  -->
-                <button class="channel"><img src="img/Logo_TVE-2.png" /></button>
+                <button class="channel" onclick="openTV(2)"><img src="img/Logo_TVE-2.png" /></button>
                 <button class="channel"><img src="img/Logo_ANTENA3.png" /></button>
                 <button class="channel"><img src="img/Logo_CUATRO.png" /></button>
                 <button class="channel"><img src="img/Logo_TELECINCO.png" /></button>
@@ -80,8 +78,8 @@
             <div class="controls">
                 <button class="volume-down" onclick="mostrarImagen('bajar')"><img src="img/volume-1.svg" /></button>
                 <button class="volume-up" onclick="mostrarImagen('subir')"><img src="img/volume-2.svg" /></button>
-                <button class="channel-down"><img src="img/channel-.svg" /></button>
-                <button class="channel-up"><img src="img/channel+.svg" /></button>
+                <button class="channel-down" onclick="changechannel('channeldown')"><img src="img/channel-.svg" /></button>
+                <button class="channel-up" onclick="changechannel('channelup')"><img src="img/channel+.svg" /></button>
                 <button class="mute" onclick="mostrarImagen('mute')"><img src="img/volume-x.svg" /></button>
             </div>
         </div>

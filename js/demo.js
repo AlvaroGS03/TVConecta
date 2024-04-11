@@ -45,9 +45,15 @@ function playSoundAndRedirect() {
     });
 }
 
-function openTV() {
+function openTV(channelselected) {
 
     var player = videojs('hls-example');
+    if(channelselected == 1){
+        player.src("video/la1_main_dvr.m3u8");
+    }
+    if(channelselected == 2){
+        player.src("video/la2_main_dvr.m3u8");
+    }
     player.play();
 
     var symbol = document.getElementById("tv-screen");
@@ -57,6 +63,29 @@ function openTV() {
     document.getElementById("tv-remote").style.right = "0px";
     document.getElementById("tv-remote").style.left = "";
 
+}
+
+function changechannel(option)
+{
+    var player = videojs('hls-example');
+    //comparar texto de la opcion seleccionada
+    if(option == "channeldown"){
+        if(player.src() == "video/la1_main_dvr.m3u8"){
+            //aviso de demo
+        }
+        else if(player.src() == "video/la2_main_dvr.m3u8"){
+            player.src("video/la1_main_dvr.m3u8");
+        }
+    if(option == "channelup"){
+        if(player.src() == "video/la1_main_dvr.m3u8"){
+            player.src("video/la2_main_dvr.m3u8");
+        }
+        else if(player.src() == "video/la2_main_dvr.m3u8"){
+            //aviso de demo
+        }
+    }
+    }
+    player.play();
 }
 
 
