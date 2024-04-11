@@ -75,15 +75,16 @@ function changechannel(option) {
         else if (player.src() == "video/la2_main_dvr.m3u8") {
             player.src("video/la1_main_dvr.m3u8");
         }
-        if (option == "channelup") {
-            if (player.src() == "video/la1_main_dvr.m3u8") {
-                player.src("video/la2_main_dvr.m3u8");
-            }
-            else if (player.src() == "video/la2_main_dvr.m3u8") {
-                mostrarAviso();
-            }
+    }
+    if (option == "channelup") {
+        if (player.src() == "video/la1_main_dvr.m3u8") {
+            player.src("video/la2_main_dvr.m3u8");
+        }
+        else if (player.src() == "video/la2_main_dvr.m3u8") {
+            mostrarAviso();
         }
     }
+
     player.play();
 }
 
