@@ -48,10 +48,10 @@ function playSoundAndRedirect() {
 function openTV(channelselected) {
 
     var player = videojs('hls-example');
-    if(channelselected == 1){
+    if (channelselected == 1) {
         player.src("video/la1_main_dvr.m3u8");
     }
-    if(channelselected == 2){
+    if (channelselected == 2) {
         player.src("video/la2_main_dvr.m3u8");
     }
     player.play();
@@ -65,25 +65,24 @@ function openTV(channelselected) {
 
 }
 
-function changechannel(option)
-{
+function changechannel(option) {
     var player = videojs('hls-example');
     //comparar texto de la opcion seleccionada
-    if(option == "channeldown"){
-        if(player.src() == "video/la1_main_dvr.m3u8"){
-            //aviso de demo
+    if (option == "channeldown") {
+        if (player.src() == "video/la1_main_dvr.m3u8") {
+            mostrarAviso();
         }
-        else if(player.src() == "video/la2_main_dvr.m3u8"){
+        else if (player.src() == "video/la2_main_dvr.m3u8") {
             player.src("video/la1_main_dvr.m3u8");
         }
-    if(option == "channelup"){
-        if(player.src() == "video/la1_main_dvr.m3u8"){
-            player.src("video/la2_main_dvr.m3u8");
+        if (option == "channelup") {
+            if (player.src() == "video/la1_main_dvr.m3u8") {
+                player.src("video/la2_main_dvr.m3u8");
+            }
+            else if (player.src() == "video/la2_main_dvr.m3u8") {
+                mostrarAviso();
+            }
         }
-        else if(player.src() == "video/la2_main_dvr.m3u8"){
-            //aviso de demo
-        }
-    }
     }
     player.play();
 }
@@ -134,5 +133,38 @@ function mostrarImagen(tipo) {
     setTimeout(function () {
         contenedor.style.display = 'none';
     }, 500); // 500 milisegundos = 0.5 segundos
+}
+
+function mostrarAviso() {
+    var popup = document.createElement('div');
+    popup.classList.add('popup');
+
+    var h2 = document.createElement('h2');
+    h2.textContent = 'Aviso';
+
+    var closeLink = document.createElement('span');
+    closeLink.classList.add('close');
+    closeLink.textContent = '×';
+    closeLink.addEventListener('click', function () {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+
+    var content = document.createElement('div');
+    content.classList.add('content');
+    content.textContent = 'No disponible en la demostración.';
+
+    popup.appendChild(h2);
+    popup.appendChild(closeLink);
+    popup.appendChild(content);
+
+    //Tengo overlay definido en el CSS, quiero añadirlo a toda la pagina cuando se muestre el popup, y cuando este se cierre, quitarselo
+    var overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+    overlay.style.display = 'block';
+
+    document.body.appendChild(popup);
+    popup.style.display = 'block';
 }
 

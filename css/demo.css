@@ -384,3 +384,53 @@ img {
         transform: scale(1);
     }
 }
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    width: 30%;
+    z-index: 9999;
+    display: none;
+    border: 5px solid #0e9271;
+    /* Añadido el borde con el color #0e9271 */
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.popup .content {
+    max-height: 200px;
+    overflow: auto;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Cambiado a un color oscuro semitransparente */
+    z-index: 9998;
+    /* Aseguramos que la capa oscura esté detrás del popup */
+    display: none;
+    /* Inicialmente oculto */
+}
