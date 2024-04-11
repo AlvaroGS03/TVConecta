@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>TVConecta - Demo</title>
     <meta name="Descripción" content="Demostración de TVConecta" />
-    <link rel="icon" href="img/icon.png" type="image/x-icon">
+    <link rel="icon" href="img/icon.png" alt="Logo de TVConecta" type="image/x-icon">
     <link rel="stylesheet" href="css/demo.css">
     <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
 </head>
@@ -50,7 +50,7 @@
     <div id="tv-wrapper">
         <div id="tv-screen">
             <div id="tv-frame">
-                <img src="img/Logo_Marco_TV.png" />
+                <img src="img/Logo_Marco_TV.png" alt="Imagen del marco de la televisión"/>
             </div>
             <div id="tv-content">
                 <video id='hls-example' class="video-js vjs-default-skin" controls width="426" height="240">
@@ -63,24 +63,24 @@
             </div>
         </div>
         <div id="tv-remote">
-            <button class="power" onclick="playSoundAndRedirect()"><img src="img/power.svg" /></button>
+            <button class="power" onclick="playSoundAndRedirect()"><img src="img/power.svg" alt="Imagrn que muestra el boton de apagado"/></button>
             <div class="channel-list">
                 <button class="channel" onclick="openTV(1)">
                     <img src="img/Logo_TVE-1.png" alt="Logo de TVE-1">
                 </button>
 
-                <button class="channel" onclick="openTV(2)"><img src="img/Logo_TVE-2.png" /></button>
-                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_ANTENA3.png" /></button>
-                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_CUATRO.png" /></button>
-                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_TELECINCO.png" /></button>
-                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_SEXTA.png" /></button>
+                <button class="channel" onclick="openTV(2)"><img src="img/Logo_TVE-2.png" alt="Logo de TVE-2"/></button>
+                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_ANTENA3.png" alt="Logo de ANTENA3"/></button>
+                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_CUATRO.png" alt="Logo de CUATRO"/></button>
+                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_TELECINCO.png" alt="Logo de TELECINCO"/></button>
+                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_SEXTA.png" alt="Logo de SEXTA"/></button>
             </div>
             <div class="controls">
-                <button class="volume-down" onclick="mostrarImagen('bajar')"><img src="img/volume-1.svg" /></button>
-                <button class="volume-up" onclick="mostrarImagen('subir')"><img src="img/volume-2.svg" /></button>
-                <button class="channel-down" onclick="changechannel('channeldown')"><img src="img/channel-.svg" /></button>
-                <button class="channel-up" onclick="changechannel('channelup')"><img src="img/channel+.svg" /></button>
-                <button class="mute" onclick="mostrarImagen('mute')"><img src="img/volume-x.svg" /></button>
+                <button class="volume-down" onclick="mostrarImagen('bajar')"><img src="img/volume-1.svg" alt="Imagen de bajar volumen"/></button>
+                <button class="volume-up" onclick="mostrarImagen('subir')"><img src="img/volume-2.svg" alt="Imagen de subir volumen"/></button>
+                <button class="channel-down" onclick="changechannel('channeldown')"><img src="img/channel-.svg" alt="Imagen de bajar canal"/></button>
+                <button class="channel-up" onclick="changechannel('channelup')"><img src="img/channel+.svg" alt="Imagen de subir canal"/></button>
+                <button class="mute" onclick="mostrarImagen('mute')"><img src="img/volume-x.svg" alt="Imagen de quitar del todo el volumen"/></button>
             </div>
         </div>
     </div>
