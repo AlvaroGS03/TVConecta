@@ -97,7 +97,7 @@ function mostrarImagen(tipo) {
 
     // Cambiar la imagen según el tipo
     if (tipo === 'subir') {
-        if (player.volume() == 1) {
+        if (player.volume() < 1) {
             player.volume(player.volume() + 0.2);
         }
         imagen.src = 'img/volume-2.svg';
