@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TVConecta - Demo</title>
+    <meta name="Descripción" content="Demostración de TVConecta" />
+    <link rel="icon" href="img/icon.png" alt="Logo de TVConecta" type="image/x-icon">
+    <link rel="stylesheet" href="css/demo.css">
+    <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="power-switch">
+        <input type="checkbox" onchange="playSound(this)" />
+        <div class="button">
+            <svg class="power-off">
+                <use xlink:href="#line" class="line" />
+                <use xlink:href="#circle" class="circle" />
+            </svg>
+            <svg class="power-on">
+                <use xlink:href="#line" class="line" />
+                <use xlink:href="#circle" class="circle" />
+            </svg>
+        </div>
+    </div>
+
+    <audio id="startup">
+        <source src="sounds/startup.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="line">
+            <line x1="75" y1="34" x2="75" y2="58" />
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" id="circle">
+            <circle cx="75" cy="80" r="35" />
+        </symbol>
+    </svg>
+    <button class="modo-complejo"
+        style="position: absolute; right: 20px; top: 20px; width: 46vw; height: 95vh; font-size: 35px;">Modo
+        Complejo</button>
+    <button id="modo-sencillo" class="modo-sencillo"
+        style="position: absolute; left: 20px; top: 20px; width: 46vw; height: 95vh; font-size: 35px;">Modo
+        Sencillo</button>
+
+    <div id="tv-wrapper">
+        <div id="tv-screen">
+            <div id="tv-frame">
+                <img src="img/Logo_Marco_TV.png" alt="Imagen del marco de la televisión"/>
+            </div>
+            <div id="tv-content">
+                <video id='hls-example' class="video-js vjs-default-skin" controls width="426" height="240">
+                    <source type="application/x-mpegURL" src="video/la1_main_dvr.m3u8">
+                </video>
+            </div>
+            <div id="imagen-container">
+                <div id="overlay"></div>
+                <img id="imagen" src="" alt="Imagen de Volumen">
+            </div>
+        </div>
+        <div id="tv-remote">
+            <div class="botonesinicio">
+                <button class="power" onclick="turnoff()"><img src="img/power.svg" alt="Imagen que muestra el boton de apagado"/></button>
+                <button class="interfaz" onclick="playSoundAndRedirect()"><img src="img/back.png" alt="Imagen de cambio de interfaz"/></button>
+            </div>
+            <div class="channel-list">
+                <button class="channel" onclick="openTV(1)">
+                    <img src="img/Logo_TVE-1.png" alt="Logo de TVE-1">
+                </button>
+
+                <button class="channel" onclick="openTV(2)"><img src="img/Logo_TVE-2.png" alt="Logo de TVE-2"/></button>
+                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_ANTENA3.png" alt="Logo de ANTENA3"/></button>
+                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_CUATRO.png" alt="Logo de CUATRO"/></button>
+                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_TELECINCO.png" alt="Logo de TELECINCO"/></button>
+                <button class="channel" onclick="mostrarAviso()"><img src="img/Logo_SEXTA.png" alt="Logo de SEXTA"/></button>
+            </div>
+            <div class="controls">
+                <button class="volume-down" onclick="mostrarImagen('bajar')"><img src="img/volume-1.svg" alt="Imagen de bajar volumen"/></button>
+                <button class="volume-up" onclick="mostrarImagen('subir')"><img src="img/volume-2.svg" alt="Imagen de subir volumen"/></button>
+                <button class="channel-down" onclick="changechannel('channeldown')"><img src="img/channel-.svg" alt="Imagen de bajar canal"/></button>
+                <button class="channel-up" onclick="changechannel('channelup')"><img src="img/channel+.svg" alt="Imagen de subir canal"/></button>
+                <button class="mute" onclick="mostrarImagen('mute')"><img src="img/volume-x.svg" alt="Imagen de quitar del todo el volumen"/></button>
+                <button class="ayuda" onclick="mostrarAviso()"><img src="img/info.png" alt="Imagen de informacion"/></button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="tv-wrapper_complejo">
+
+        <div id="tv-screen">
+            <div id="tv-frame">
+                <img src="img/Logo_Marco_TV.png" alt="Imagen del marco de la televisión"/>
+            </div>                
+            <div id="tv-content">
+                <video id='hls-example' class="video-js vjs-default-skin" controls width="426" height="240">
+                    <source type="application/x-mpegURL" src="video/la1_main_dvr.m3u8">
+                </video>
+            </div>
+            <div id="imagen-container">
+                <div id="overlay"></div>
+                <img id="imagen" src="" alt="Imagen de Volumen">
+            </div>
+        </div>
+        <div id="tv-remote-complejo">
+            <div id="remote-principal">
+                <div class="botonesinicio2">
+                    <button class="power-btn" onclick="turnoff()"><img src="img/power.svg" alt="Imagen que muestra el boton de apagado"/></button>
+                    <button class="menu-btn" onclick="mostrarmenu()">☰</button>
+                </div>
+                <div class="number-buttons">
+                    <div class="row">
+                        <button onclick="openTV(1)">1</button>
+                        <button onclick="openTV(2)">2</button>
+                        <button onclick="mostrarAviso()">3</button>
+                    </div>
+                    <div class="row">
+                        <button onclick="mostrarAviso()">4</button>
+                        <button onclick="mostrarAviso()">5</button>
+                        <button onclick="mostrarAviso()">6</button>
+                    </div>
+                    <div class="row">
+                        <button onclick="mostrarAviso()">7</button>
+                        <button onclick="mostrarAviso()">8</button>
+                        <button onclick="mostrarAviso()">9</button>
+                    </div>
+                    <div class="row">
+                        <button onclick="mostrarAviso()" class="btnzero" >0</button>
+                    </div>
+                </div>
+
+                <div class="columns-control">
+                    <div class="volume-controls">
+                        <button onclick="mostrarImagen('subir')"><img src="img/volume-2.svg" alt="Imagen de subir volumen"/></button>
+                        <button onclick="mostrarImagen('mute')" style="background-color: #0e9271;"><img src="img/volume-x.svg" alt="Imagen de quitar del todo el volumen"/></button>
+                        <button onclick="mostrarImagen('bajar')"><img src="img/volume-1.svg" alt="Imagen de bajar volumen"/></button>
+                    </div>
+                    
+                    <div class="center-controls">
+                        <button class="up-button">^</button>
+                        <button class="left-button"><</button>
+                        <button class="ok-button">OK</button>
+                        <button class="right-button">></button>
+                        <button class="down-button">v</button>
+                    </div>
+                    
+                    
+                    <div class="channel-controls">
+                        <button onclick="changechannel('channelup')"><img src="img/channel+.svg" alt="Imagen de subir canal"/></button>
+                        <button onclick="mostrarAviso()" style="color: black; font-weight: bold; background-color: #0e9271;">Guía TV</button>
+                        <button onclick="changechannel('channeldown')"><img src="img/channel-.svg" alt="Imagen de bajar canal"/></button>
+                    </div>
+                </div>
+        
+                <div class="media-controls">
+                    <button onclick="playpause()"><img src="img/play_pause.png" alt="Imagen de Iniciar o pausar" ></button>
+                    <button onclick="mostrarAviso()"><img src="img/sub.png" alt="Imagen de Subtitulos"></button>
+                    <button id="btnGrabar" onclick="grabar()"><img src="img/rec.png" alt="Imagen de grabar"></button>
+                    <button onclick="stopvideo()"><img src="img/stop.png" alt="Imagen de Stop"></button>
+                    <button onclick="mostrarAviso()"><img src="img/info.png" alt="Imagen de informacion"/></button>
+                </div>
+        
+                <div class="media-categories">
+                    <button onclick="peliculas()">Películas</button>
+                    <button onclick="mostrarAviso()" >Series</button>
+                </div>
+        
+                <button onclick="mostrarAviso()" class="microphone-btn"><img src="img/mic.png" alt="Imagen del Microfono"></button>
+            </div>
+
+            <div id="menu-configuracion" style="display: none;">
+                <div class="menu-header" style="display: inline-flex;">
+                    <h2>Opciones</h2>
+                    <button id="menu-btn2" class="menu-btn2" onclick="mostrarprincipal()" style="margin-left: 96px;">☰</button>
+                </div>
+                <div class="botones_configuracion">
+                    <button class="btn" onclick="playSoundAndRedirect()">Modo interfaz</button>
+                    <button class="btn" onclick="mostrarAviso()">Modo Claro/Oscuro</button>
+                    <button class="btn" onclick="mostrarAviso()">Configuración</button>
+                    <button class="btn" onclick="mostrarAviso()">Acerca de</button>
+                </div>
+            </div>
+
+            <div id="menu-grabar" style="display: none;">
+                <div class="menu-header" style="display: inline-flex;">
+                    <button id="volver-grabar" class="volver-grabar" onclick="mostrarprincipal()" style="margin-right: 96px; background-color: #a5a3a3; color: black; font-size: 40px;">←</button>
+                    <h2>Grabación</h2>
+                </div>
+                <h3 style="text-align: left;">La 1</h3>
+                <h6 style="text-align: left;">10:00h-12:00h</h6>
+                <div style="display: flex;" class="progra1">
+                    <button class="btn" onclick="iragrabar('programa')">Programa</button>
+                    <button class="btn" onclick="iragrabar('pelicula')" style="width: 160px;">Película</button>
+                    <button class="btn" onclick="iragrabar('serie')" style="width: 70px;">Serie</button>
+                </div>
+                <h3 style="text-align: left;">La 2</h3>
+                <h6 style="text-align: left;">10:00h-11:00h</h6>
+                <div style="display: flex;" class="progra1">
+                    <button class="btn" onclick="iragrabar('serie')" style="width: 70px;">Serie</button>
+                    <button class="btn" onclick="iragrabar('programa')">Programa</button>
+                    <button class="btn" onclick="iragrabar('pelicula')" style="width: 160px;">Película</button>
+                </div>
+                <h3 style="text-align: left;">Antena 3</h3>
+                <h6 style="text-align: left;">10:00h-12:00h</h6>
+                <div style="display: flex;" class="progra1">
+                    <button class="btn" onclick="iragrabar('programa')">Programa</button>
+                    <button class="btn" onclick="iragrabar('pelicula')" style="width: 160px;">Película</button>
+                    <button class="btn" onclick="iragrabar('serie')" style="width: 70px;">Serie</button>
+                </div>
+                <h3 style="text-align: left;">Telecinco</h3>
+                <h6 style="text-align: left;">10:00h-11:00h</h6>
+                <div style="display: flex;" class="progra1">
+                    <button class="btn" onclick="iragrabar('serie')" style="width: 70px;">Serie</button>
+                    <button class="btn" onclick="iragrabar('programa')">Programa</button>
+                    <button class="btn" onclick="iragrabar('pelicula')" style="width: 160px;">Película</button>
+                </div>
+                <h3 style="text-align: left;">La sexta</h3>
+                <h6 style="text-align: left;">10:00h-12:00h</h6>
+                <div style="display: flex;" class="progra1">
+                    <button class="btn" onclick="iragrabar('programa')">Programa</button>
+                    <button class="btn" onclick="iragrabar('pelicula')" style="width: 160px;">Película</button>
+                    <button class="btn" onclick="iragrabar('serie')" style="width: 70px;">Serie</button>
+                </div>
+            </div>
+
+            <div id="grabacion-ultima" style="display: none;" class="grabacion-ultima">
+                <div class="menu-header" style="display: inline-flex;">
+                    <button id="volver-grabar" class="volver-grabar" onclick="grabar()" style="margin-right: 96px; background-color: #a5a3a3; color: black; font-size: 40px;">←</button>
+                    <h2>Grabación</h2>
+                </div>
+                <img src="https://pics.filmaffinity.com/kingdom_of_the_planet_of_the_apes-598062850-mmed.jpg" alt="Imagen de la película"/> 
+                <h3 style="text-align: left;">Titulo: El reino del planeta de los simios (2024) </h3>
+                <h3 style="text-align: left;">Duración: 2h 25m </h3>
+                <button id="btn-pelicula" class="btn" onclick="mostrarAvisoGrabar('btn-pelicula')" style="width: 160px; background-color: orange; color: black;">Grabar</button>
+            </div>
+
+            <div id="grabacion-serie" style="display: none;" class="grabacion-serie">
+                <div class="menu-header" style="display: inline-flex;">
+                    <button id="volver-grabar" class="volver-grabar" onclick="grabar()" style="margin-right: 96px; background-color: #a5a3a3;color: black; font-size: 40px;">←</button>
+                    <h2>Grabación</h2>
+                </div>
+                <img src="https://pics.filmaffinity.com/pokemon_horizons_the_series-564004790-mmed.jpg" alt="Imagen de la serie"/> 
+                <h3 style="text-align: left;">Titulo: Horizontes Pokemon (2023) </h3>
+                <h3 style="text-align: left;">Duración: 22m </h3>
+                <input type="checkbox"/><label>Grabar siempre</label>
+                <button id="btn-serie" class="btn" onclick="mostrarAvisoGrabar('btn-serie')" style="width: 160px; background-color: orange; color: black;">Grabar</button>
+            </div>
+
+            <div id="grabacion-programa" style="display: none;" class="grabacion-programa">
+                <div class="menu-header" style="display: inline-flex;">
+                    <button id="volver-grabar" class="volver-grabar" onclick="grabar()" style="margin-right: 96px; background-color: #a5a3a3;color: black; font-size: 40px;">←</button>
+                    <h2>Grabación</h2>
+                </div>
+                <img src="https://img2.rtve.es/p/131790?imgProgApi=imgBackground&w=400" alt="Imagen del programa"/> 
+                <h3 style="text-align: left;">Titulo: La Hora de la 1 (2024) </h3>
+                <h3 style="text-align: left;">Duración: 50m </h3>
+                <input type="checkbox"/><label>Grabar siempre</label>
+                <button id="btn-programa" class="btn" onclick="mostrarAvisoGrabar('btn-programa')" style="width: 160px; background-color: orange; color: black;">Grabar</button>
+            </div>
+
+            <div id="peliculas" style="display: none;" class="peliculasmain">
+                <div class="menu-header" style="display: inline-flex;">
+                    <button id="volver-mando" class="volver-mando" onclick="mostrarprincipal()" style="margin-right: 96px; background-color: #a5a3a3;color: black; font-size: 40px;">←</button>
+                    <h2>Peliculas</h2>
+                </div>
+                <div>
+                    <h3 style="text-align: left;">Grabadas</h3> 
+                    <div style="display: none;" class="peliculas" id="pelisgrabadas">
+                        <button class="btn" onclick="iraver('pelicula-grabada')">Película</button>
+                    </div>
+                    <h3 style="text-align: left;">Compradas</h3> 
+                    <div style="display: flex;" class="peliculas">
+                        <button class="btn" onclick="iraver('pelicula-comprada')">Película</button>
+                        <button class="btn" onclick="iraver('pelicula-comprada')" id="compradapelicula" style="display: none;">Película</button>
+                    </div>
+                    <h3 style="text-align: left;">Explorar</h3> 
+                    <div style="display: flex;" class="peliculas">
+                        <button class="btn" onclick="iraver('pelicula-explorada')">Película</button>
+                        <button class="btn" onclick="iraver('pelicula-explorada')">Película</button>
+                        <button class="btn" onclick="iraver('pelicula-explorada')">Película</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pelicula-comprada" style="display: none;" class="pelicula-comprada">
+                <div class="menu-header" style="display: inline-flex;">
+                    <button id="volver-peliculas" class="volver-peliculas" onclick="peliculas()" style="margin-right: 96px; background-color: #a5a3a3;color: black; font-size: 40px;">←</button>
+                    <h2>Películas</h2>
+                </div>
+                <img src="https://pics.filmaffinity.com/joker_folie_a_deux-660413218-mmed.jpg" alt="Imagen de la película"/> 
+                <h3 style="text-align: left;">Titulo: Joker: Folie à Deux (2024) </h3>
+                <h3 style="text-align: left;">Duración: 2h 30m </h3>
+                <button id="" class="btn" onclick="verpeliculaentv()" style="width: 160px; background-color: orange; color: black;">Ver ahora</button>
+            </div>
+            <div id="pelicula-explorada" style="display: none;" class="pelicula-explorada">
+                <div class="menu-header" style="display: inline-flex;">
+                    <button id="volver-peliculas" class="volver-peliculas" onclick="peliculas()" style="margin-right: 96px; background-color: #a5a3a3;color: black; font-size: 40px;">←</button>
+                    <h2>Películas</h2>
+                </div>
+                <img src="https://pics.filmaffinity.com/joker_folie_a_deux-660413218-mmed.jpg" alt="Imagen de la película"/> 
+                <h3 style="text-align: left;">Titulo: Joker: Folie à Deux (2024) </h3>
+                <h3 style="text-align: left;">Duración: 2h 30m </h3>
+                <button id="" class="btn" onclick="vertrailer()" style="width: 160px; background-color: #0e9271; color: black;">Ver trailer</button>
+                <button id="" class="btn" onclick="comprarpelicula()" style="width: 160px; background-color: orange; color: black;">Comprar ahora</button>
+            </div>
+            <div id="pelicula-grabada" style="display: none;" class="pelicula-grabada">
+                <div class="menu-header" style="display: inline-flex;">
+                    <button id="volver-peliculas" class="volver-peliculas" onclick="peliculas()" style="margin-right: 96px; background-color: #a5a3a3;color: black; font-size: 40px;">←</button>
+                    <h2>Películas</h2>
+                </div>
+                <img src="https://pics.filmaffinity.com/kingdom_of_the_planet_of_the_apes-598062850-mmed.jpg" alt="Imagen de la película"/> 
+                <h3 style="text-align: left;">Titulo: El reino del planeta de los simios (2024) </h3>
+                <h3 style="text-align: left;">Duración: 2h 25m </h3>
+                <button id="" class="btn" onclick="borrargrabada()" style="width: 160px; background-color: red; color: black;">Borrar</button>
+                <button id="" class="btn" onclick="verpeliculaentv()" style="width: 160px; background-color: orange; color: black;">Ver ahora</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/demo.js"></script>
+    <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
+    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+
+</body>
+
+</html>
