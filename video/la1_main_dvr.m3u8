@@ -4,6 +4,7 @@
 #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audios",NAME="Castellano",LANGUAGE="spa",CHANNELS="2",DEFAULT=YES,AUTOSELECT=YES
 #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audios",NAME="Original",LANGUAGE="qaa",CHANNELS="2",DEFAULT=NO,URI="https://rtvelivestream.akamaized.net/rtvesec/la1/la1_main_dvr_a_38.m3u8"
 #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audios",NAME="Audio Descripcion",LANGUAGE="ads",CHANNELS="2",DEFAULT=NO,CHARACTERISTICS="public.accessibility.describes-video",URI="https://rtvelivestream.akamaized.net/rtvesec/la1/la1_main_dvr_a_39.m3u8"
+#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audios",NAME="Cope",LANGUAGE="qaa",CHANNELS="2",DEFAULT=NO,URI="http://flucast-b05-02.flumotion.com/cope/net1.mp3"
 #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subtitulos",NAME="Español",LANGUAGE="es",DEFAULT=NO,FORCED=NO,URI="https://rtvelivestream.akamaized.net/rtvesec/la1/la1_main_dvr_es.m3u8"
 #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subtitulos",NAME="Inglés",LANGUAGE="en",DEFAULT=NO,FORCED=NO,URI="https://rtvelivestream.akamaized.net/rtvesec/la1/la1_main_dvr_en.m3u8"
 #EXT-X-MEDIA:TYPE=SUBTITLES,GROUP-ID="subtitulos",NAME="Gallego",LANGUAGE="gl",DEFAULT=NO,FORCED=NO,URI="https://rtvelivestream.akamaized.net/rtvesec/la1/la1_main_dvr_gl.m3u8"
